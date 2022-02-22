@@ -16,5 +16,19 @@ def index():
 
     return render_template('index.html')
 
+@app.route("/menu")
+def menu():
+
+    return render_template('menu.html')
+
+@app.route("/giftcards")
+def giftcards():
+
+    return render_template('giftcards.html')
+
+@app.route("/signin")
+def signin():
+
+    return render_template('signin.html')
 
 app.run()
