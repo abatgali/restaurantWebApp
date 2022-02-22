@@ -10,19 +10,16 @@
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
+            <div class="container-sm">
               <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-              <a class="navbar-brand" href="index.html">
-                <img src="static/imgs/Logo.png" alt="Clay Oven Indian Restaurant Logo" class="align-text-mid" id="logo">
+              <a class="navbar-brand" href="/">
+                <img src="static/imgs/Logo.png" alt="Clay Oven Indian Restaurant Logo" class="align-text-mid logo">
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Menu</a>
                   </li>
@@ -43,8 +40,18 @@
             {% block main %} 
             {% endblock %}
         </main>
-        <footer>
-            <p>&copy; 2022 Clay Oven Indian Restaurant. All rights reserved. </p>
-        </footer>
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top container-sm">
+            <div class="col-md-4 d-flex align-items-center">
+            
+            <span class="text-muted">© 2022 Clay Oven LLC. All rights reserved.</span>
+            </div>
+        
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img src="static/imgs/Logo.png" alt="Clay Oven Indian Restaurant Logo" class="align-text-mid logo">
+                </a>
+            </ul>
+        </footer>            
     </body>
 </html>
