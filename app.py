@@ -21,8 +21,8 @@ def menu():
 
     return render_template('menu.html')
 
-@app.route("/giftcards")
-def giftcards():
+@app.route("/gift")
+def gift():
 
     return render_template('giftcards.html')
 
