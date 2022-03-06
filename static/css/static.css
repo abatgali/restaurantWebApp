@@ -2,3 +2,31 @@
     height: auto;
     width: 10em;
 }
+
+.giftcard {
+    /* border: 1px solid black; */
+    height: 25vmin;
+    width: 35vmin;
+    margin: 4vmin;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-flow: wrap;
+    width: 80%;
+    margin-left: auto;
+}
+
+.giftcard img {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 1.2vmin;
+    box-shadow: .25vmin .15vmin .75vmin rgba(46, 45, 42, 0.2);
+}
+
+.giftcard img:hover {
+    position: relative;
+    top: -5px;
+    transition: ease;
+    border-bottom: solid 1px rgba(192, 110, 78, 0.4);
+}
