@@ -4,4 +4,57 @@
 
 {% block main%}
 
+    <div class="container-sm mt-5 p-5">
+        <form  action='/signin' method="POST">
+            <div class="form-floating mb-3 ">
+                <input type="email" class="form-control" name="username">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" name="password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button type="submit" class="btn btn-secondary btn-lg m-4">Sign In</button>
+        </form>
+        <hr>
+        <h4 class="mt-5 text-muted">Create Account</h4>
+        <form action="/signin" method="POST">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="validationDefault01" class="form-label">First name</label>
+
+              <input type="text" class="form-control" name="fname" id="fname" required>
+
+            </div>
+            <div class="col-md-4">
+              <label for="validationDefault02" class="form-label">Last name</label>
+              <input type="text" class="form-control" name="lname" id="lname" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="validationDefaultUsername" class="form-label">Email</label>
+              <div class="input-group">
+                <input type="email" class="form-control" name="email" id="email" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="validationDefaultUsername" class="form-label">Password</label>
+              <div class="input-group">
+                <input type="password" class="form-control" name="pwd" id="pwd" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationDefaultUsername" class="form-label">Confirm Password</label>
+              <div class="input-group">
+                <input type="password" class="form-control" name="c_pwd" id="c_pwd" required>
+              </div>
+            </div>
+          </div>
+            <button type="submit" class="btn btn-secondary btn-lg m-4">Sign Up</button>
+        </form>
+    </div>
+
 {% endblock %}
