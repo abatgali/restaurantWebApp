@@ -2,15 +2,24 @@ from flask import Flask, render_template, redirect, request
 from functools import wraps
 #from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
-import sqlite3
+from sqlite3 import connect
 
 
 app = Flask(__name__)
 
-class session(object):
+class Session( ):
     
-    def __init__(self) -> None:
-        pass
+    def __init__(self, user):
+        self.user = user
+    
+    def set_user(self, user):
+        self.user = user    
+
+    def get_user(self):
+        return self.user    
+
+# initializing session object    
+user = Session(0)
 
 # to disable caching
 @app.after_request
@@ -48,19 +57,22 @@ def signin():
     
     if request.method == "POST":
         
-        with sqlite3.connect('restaurant.db', check_same_thread=False) as conn:
+        with connect('restaurant.db', check_same_thread=False) as conn:
             
             db = conn.cursor()
             
             username = request.form.get("username")
             password = request.form.get("password")
             
-            rows = db.execute("SELECT * FROM users WHERE email=?", [username])
+            rows = db.execute("SELECT * FROM users WHERE email=?", [username]).fetchall()
+            
             # matching entered credentials with database records
-            check = rows.fetchall()[0][2]
-            session = rows.fetchall()[0]
+            check = rows[0][2]
             if check_password_hash(check, password):
-                print('login successful')
+            
+                # setting session id
+                user.set_user(rows[0][0])
+                print('login successful for ', user.get_user())
                 return redirect('/user')
             
             else:
@@ -81,26 +93,28 @@ def signup():
         pwd = request.form.get('pwd')
         c_pwd = request.form.get('c_pwd')
         
-        
         if pwd == c_pwd:
             
             # opening connection to database and committing the newly created account
-            with sqlite3.connect('restaurant.db', check_same_thread=False) as conn:
+            with connect('restaurant.db', check_same_thread=False) as conn:
             
                 db = conn.cursor()
                 db.execute('INSERT INTO users (email, hash, name) VALUES (?, ?, ?)', (email, generate_password_hash(pwd), fname + ' ' + lname))
-
-                
+         
         return render_template('/signin')
+    
     
 @app.route("/user")
 def useracc():
     
-    with sqlite3.connect('restaurant.db', check_same_thread=False) as conn:
-            
+    with connect('restaurant.db') as conn:
         db = conn.cursor()
+
+        rows = db.execute("SELECT name, email FROM users WHERE id=?",[user.get_user()]).fetchall()
+
+        name = rows[0][0].split(' ')[0]
+        email = rows[0][1]
         
-        db.execute("SELECT ")
-    return render_template('useracc.html')
+        return render_template('useracc.html', name=name, username=email)
  
 app.run()
