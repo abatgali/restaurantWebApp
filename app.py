@@ -1,25 +1,16 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, session
 from functools import wraps
-#from flask_session import Session
+from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from sqlite3 import connect
 
 
 app = Flask(__name__)
 
-class Session( ):
-    
-    def __init__(self, user):
-        self.user = user
-    
-    def set_user(self, user):
-        self.user = user    
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
-    def get_user(self):
-        return self.user    
-
-# initializing session object    
-user = Session(0)
 
 # to disable caching
 @app.after_request
@@ -33,31 +24,37 @@ def after_request(response):
 
 @app.route("/")
 def index():
-
-    return render_template('index.html')
+    
+    # checking if user session exists 
+    try:
+        session["user"]
+    except KeyError:
+        session["user"] = 0
+        
+    return render_template('index.html', sesh=session["user"])
 
 
 @app.route("/menu")
 def menu():
 
-    return render_template('menu.html')
+    return render_template('menu.html', sesh=session["user"])
 
 
 @app.route("/gift")
 def gift():
 
-    return render_template('giftcards.html')
+    return render_template('giftcards.html', sesh=session["user"])
 
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
     
     if request.method == "GET":
-        return render_template('signin.html')
+        return render_template('signin.html', sesh=session["user"])
     
     if request.method == "POST":
         
-        with connect('restaurant.db', check_same_thread=False) as conn:
+        with connect('restaurant.db') as conn:
             
             db = conn.cursor()
             
@@ -71,8 +68,8 @@ def signin():
             if check_password_hash(check, password):
             
                 # setting session id
-                user.set_user(rows[0][0])
-                print('login successful for ', user.get_user())
+                session["user"] = rows[0][0]
+                print('login successful for ', session["user"])
                 return redirect('/user')
             
             else:
@@ -96,12 +93,12 @@ def signup():
         if pwd == c_pwd:
             
             # opening connection to database and committing the newly created account
-            with connect('restaurant.db', check_same_thread=False) as conn:
+            with connect('restaurant.db') as conn:
             
                 db = conn.cursor()
                 db.execute('INSERT INTO users (email, hash, name) VALUES (?, ?, ?)', (email, generate_password_hash(pwd), fname + ' ' + lname))
          
-        return render_template('/signin')
+        return redirect('/signin')
     
     
 @app.route("/user")
@@ -110,11 +107,20 @@ def useracc():
     with connect('restaurant.db') as conn:
         db = conn.cursor()
 
-        rows = db.execute("SELECT name, email FROM users WHERE id=?",[user.get_user()]).fetchall()
+        rows = db.execute("SELECT name, email FROM users WHERE id=?", [session["user"]]).fetchall()
 
+        # first name
         name = rows[0][0].split(' ')[0]
+        # username
         email = rows[0][1]
         
-        return render_template('useracc.html', name=name, username=email)
+        return render_template('useracc.html', name=name, username=email, sesh=session["user"])
+    
+
+@app.route("/signout")
+def signout():
+    
+    session.clear()
+    return redirect('/')
  
 app.run()
