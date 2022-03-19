@@ -1,0 +1,456 @@
+{
+    "Appetizers": {
+        "Chat Paapri": {
+            "desc": "chick peas and cubes of potatoes mixed in a fresh cilantro mint and tangy spiced yogurt topped with crisp waters",
+            "price": 6.99
+        },
+        "Chicken Pakora": {
+            "desc": "bite size tender chicken dipped in a garbanzo beans batter mix. Deep fried and crispy.",
+            "price": 7.99
+        },
+        "Paneer Pakora": {
+            "desc": "homemade Indian cheese stuffed with special cilantro and mint chutney dipped in a garbanzo beans batter mix. Deep fried and crispy.",
+            "price": 6.99
+        },
+        "Tandoori Assortment Platter": {
+            "desc": "tandoori chicken, chicken tikka, and boti kabab",
+            "price": 12.99
+        },
+        "Tandoori Shrimp": {
+            "desc": "jumbo shrimp marinated in herb mixture and delicately broiled in a tandoori clay oven",
+            "price": 9.99
+        },
+        "Vege Assorted Platter": {
+            "desc": "vegetable pakora, vegetable samosa, aloo tikki",
+            "price": 6.99
+        },
+        "Vegetable Pakora": {
+            "desc": "fresh slices of vegetables dipped in a garbanzo beans batter mix. Deep fried and crispy.",
+            "price": 3.99
+        },
+        "Vegetable Samosa": {
+            "desc": "crispy turnovers stuffed with spiced potatoes and peas",
+            "price": 3.99
+        }
+    },
+    "Soup": {
+        "Mulligatwany Soup": {
+            "desc": "traditional indian soup made with lentils and vegetables lightly spiced",
+            "price": 3.99
+        }
+    },
+    "Salad": {
+        "Cucumber Salad": {
+            "desc": "fresh slices or tomatoes, cucumber, onion, cilantro with lime and herbs",
+            "price": 4.99
+        }
+    },
+    "Accompaniments": {
+        "Achaar": {
+            "desc": "hot and spicy mixed pickles",
+            "price": 1.99
+        },
+        "Mango Chutney": {
+            "desc": "sweetened mildly spiced mango and herbs",
+            "price": 2.99
+        },
+        "Papad": {
+            "desc": "thin and crispy wafer made",
+            "price": 1.99
+        },
+        "Raita": {
+            "desc": "yogurt sauce made with grated cucumber tomato sprinkle and roasted cumin seed",
+            "price": 1.99
+        }
+    },
+    "Clay Oven Specialties": {
+        "Boti Kabab": {
+            "desc": "tender morsel of lamb marinated in indian seasoning and herbs then broiled to perfection",
+            "price": 16.99
+        },
+        "Fish Tikka": {
+            "desc": "boneless fresh salmon marinated in aromatic herbs and mild indian seasoning broiled in tandoori clay oven",
+            "price": 16.99
+        },
+        "Paneer Tikka": {
+            "desc": "paneer tikka marinated in herb mixture and delicately broiled in our tandoori clay oven; then baked on a skewer in a tandoori clay oven",
+            "price": 15.99
+        },
+        "Reshmi Kabab": {
+            "desc": "boneless chicken cubes marinated in light cream and mild indian seasoning then broiled in clay oven",
+            "price": 15.99
+        },
+        "Shrimp and Chicken Tikka": {
+            "desc": "jumbo shrimp and cubes or chicken breast marinated in ginger, garlic, yogurt and herbs, then baked on a skewer in tandoori clay oven",
+            "price": 15.99
+        },
+        "Tandoori Chicken": {
+            "desc": "half spring chicken marinated in yogurt and mild seasoning, roasted in tandoori clay oven",
+            "price": 15.99
+        },
+        "Tandoori Chicken Tikka": {
+            "desc": "boneless breast of chicken marinated in ginger, garlic, yogurt the baked on skewer in tandoori clay oven",
+            "price": 15.99
+        },
+        "Tandoori Mixed Grill": {
+            "desc": "assorted tandoori varieties from above tandoori chicken, lamb boti kabab, reshmi kabab, tandoori shrimp and fish tikka; served on bread or vegetables on a sizzling platter",
+            "price": 16.99
+        },
+        "Tandoori Shrimp": {
+            "desc": "jumbo shrimp marinated in herb mixture and delicately broiled in a tandoori clay oven",
+            "price": 16.99
+        }
+    },
+    "Chicken Entree": {
+        "Butter Chicken": {
+            "desc": "boneless chicken with fresh tomatoes, sliced onion, green peppers with special zesty sauce",
+            "price": 13.99
+        },
+        "Chicken 65": {
+            "desc": "Chicken 65 is a spicy deep fried chicken dish",
+            "price": 13.99
+        },
+        "Chicken Cauliflower or Eggplant Korma": {
+            "desc": "boneless cubes of chicken cooked with cauliflower or eggplant in moderately seasoned cream sauce with nuts and saffron",
+            "price": 13.99
+        },
+        "Chicken Chilli": {
+            "desc": "chicken strips sauteed with garlic, ginger, onion and green peppers with chef\u2019s special recipe",
+            "price": 13.99
+        },
+        "Chicken Curry": {
+            "desc": "boneless chicken cooked in heavenly curry sauce, seasoned to your taste",
+            "price": 13.99
+        },
+        "Chicken Jalfrezi": {
+            "desc": "boneless cubes of chicken with mild indian seasoning with fresh mushrooms, broccoli, tomatoes seasoned to your taste",
+            "price": 13.99
+        },
+        "Chicken Karahi": {
+            "desc": "cut pieces of chicken sauteed with special indian seasoning with fresh tomatoes, onions and green peppers",
+            "price": 13.99
+        },
+        "Chicken Madras": {
+            "desc": "south indian traditionally hot boneless chicken cooked with coconut and tangy special sauce",
+            "price": 13.99
+        },
+        "Chicken Mango Wala": {
+            "desc": "boneless cubes of chicken cooked in mango sauce with mild seasoning and touch of scallion and ginger",
+            "price": 13.99
+        },
+        "Chicken Mathi Masala": {
+            "desc": "boneless cubes of chicken cooked with fenugreek leaves in mild curry sauce",
+            "price": 13.99
+        },
+        "Chicken Mumtaji": {
+            "desc": "boneless cubes of chicken cooked in moderately seasoned cream sauce with nuts and saffron",
+            "price": 13.99
+        },
+        "Chicken Peshawari": {
+            "desc": "cubes of boneless chicken cooked in yogurt curried sauce with a touch of seasoning and herbs the way you like",
+            "price": 14.99
+        },
+        "Chicken Saag": {
+            "desc": "boneless chicken cooked in heavenly curry sauce, seasoned to your taste",
+            "price": 12.99
+        },
+        "Chicken Tikka Masala": {
+            "desc": "boneless white meat chicken tikka cooked with fresh peppers with our special zesty sauce",
+            "price": 13.99
+        },
+        "Chicken Vindaloo": {
+            "desc": "south indian traditionally hot boneless chicken cooked in highly spiced sauce",
+            "price": 13.99
+        },
+        "Shahi Chicken Biryani": {
+            "desc": "chicken marinated with indian seasoning and saffron, then steam cooked with naturally fragrant long grain basmati rice served with raita",
+            "price": 13.99
+        }
+    },
+    "Lamb Delicacies": {
+        "Achari Gosht": {
+            "desc": "lean pcs of lamb cooked in a authentic spicy indian herbal sauce; a delight spicy food lovers",
+            "price": 14.99
+        },
+        "Karahi Ghosht": {
+            "desc": "diced lamb sauteed in a wok with onion, peppers, tomatoes, ginger, garlic and herbs",
+            "price": 14.99
+        },
+        "Lamb Bhindi Gosht": {
+            "desc": "all lean meat lamb cooked in wok with fresh cut okra with garlic, ginger, onion, bell peppers with sprinkle of cilantro",
+            "price": 14.99
+        },
+        "Lamb Biryani": {
+            "desc": "classic mughali dish; succulent pieces of curried meat cooked with basmati rice gently flavored with saffron and nuts; served with raita sauce",
+            "price": 14.99
+        },
+        "Lamb Jalfrezi": {
+            "desc": "cubes of tender lamb sauteed with fresh sliced vegetables simmered with special sauce",
+            "price": 14.99
+        },
+        "Lamb Mango": {
+            "desc": "tender pieces of lamb cooked inn mango sauce with touch or ginger, herb and scallions",
+            "price": 14.99
+        },
+        "Lamb Methi Masala": {
+            "desc": "another north indian favorite; tender cubes of lamb cooked in aromatic and delightful fenugreek and fresh spinach",
+            "price": 14.99
+        },
+        "Lamb Mushrooms or Eggplants": {
+            "desc": "lamb all lean meat cooked with fresh mushrooms or eggplant in punjabi style with our chef special sauce",
+            "price": 14.99
+        },
+        "Lamb Pasanda": {
+            "desc": "another favorite of kings; all lean meat, lamb cooked in cream and almond sauce, rich and mild",
+            "price": 14.99
+        },
+        "Lamb Rogan Josh": {
+            "desc": "pieces of lean lamb cooked in a heavenly curry sauce",
+            "price": 14.99
+        },
+        "Lamb Saag": {
+            "desc": "tender pieces of lamb cooked and sauteed with deliciously spiced creamed spinach and herbs",
+            "price": 14.99
+        },
+        "Lamb Tikka Masala": {
+            "desc": "clay oven lamb tossed in a deliciously zesty sauce",
+            "price": 14.99
+        },
+        "Lamb Vindaloo": {
+            "desc": "another south india favorite! highly spiced lamb cooked in a tangy hot sauce.",
+            "price": 14.99
+        }
+    },
+    "Seafood Entree": {
+        "Clay Oven Special Biryami": {
+            "desc": "shrimp, scallop and chicken, marinated with indian seasoning and saffron, then steam cooked with naturally fragnant long grain basmati rice served with raita",
+            "price": 14.99
+        },
+        "Fish Madras Curry": {
+            "desc": "fillet of boneless fresh salmon cooked in a south indian special sauce traditionally served hot",
+            "price": 14.99
+        },
+        "Seafood Vindaloo": {
+            "desc": "traditionally south indian specialty shrimp, scallop and fresh sermon in highly spiced sauce",
+            "price": 14.99
+        },
+        "Shrimp Mushroom": {
+            "desc": "shrimp sauteed with mild indian seasoning with fresh mushroom, broccoli and tomatoes",
+            "price": 14.99
+        },
+        "Shrimp Broccoli": {
+            "desc": "shrimp sauteed with mild indian seasoning with fresh mushroom, broccoli and tomatoes",
+            "price": 14.99
+        },
+        "Shrimp and Scallop Krachi": {
+            "desc": "shrimp and scallop sauteed in wok with fresh tomatoes, green peppers, ginger, garlic, onion and cilantro",
+            "price": 14.99
+        },
+        "Shrimp or Fish Tikka Masala": {
+            "desc": "tandoori shrimp in special zesty sauce with tomatoes, sliced onion, green peppers and herbs",
+            "price": 14.99
+        },
+        "Fish Tikka Masala": {
+            "desc": "fish tossed in special zesty sauce with tomatoes, sliced onion, green peppers and herbs",
+            "price": 14.99
+        },
+        "Shrimp or Masala": {
+            "desc": "shrimp tossed in special zesty with tomatoes, sliced onion, green peppers and herbs",
+            "price": 14.99
+        },
+        "Shrimp or Scallop Mango": {
+            "desc": "with mild seasoning and touch of scallion and ginger",
+            "price": 14.99
+        },
+        "Scallop Mango": {
+            "desc": "scallop cooked in mango sauce with mild seasoning and touch of scallion and ginger",
+            "price": 14.99
+        }
+    },
+    "Vegetarian Specialties": {
+        "Alloo Baigan (vegan)": {
+            "desc": "vegan; fresh eggplant and potatoes sauteed with tomatoes, garlic, ginger and onion with touch herbs and spices",
+            "price": 11.99
+        },
+        "Alloo Bhaji (vegan)": {
+            "desc": "vegan; diced potatoes sauteed with onion, tomatoes, green peppers and ginger mildly spiced",
+            "price": 11.99
+        },
+        "Alloo Gobhi (vegan)": {
+            "desc": "vegan; potatoes and fresh cauliflower sauteed with onions. tomatoes, ginger, spiced",
+            "price": 11.99
+        },
+        "Alloo Palak (vegan)": {
+            "desc": "vegan; spinach cooked with potatoes or mixed vegetables in mildly spiced sauce with touch spices and herbs",
+            "price": 11.99
+        },
+        "Bhindi Masala (vegan)": {
+            "desc": "vegan; cut okra sauteed with onion, tomatoes and green peppers and ginger; mildly spiced",
+            "price": 11.99
+        },
+        "Chana Masala (vegan)": {
+            "desc": "diced potatoes and garbanzo beans cooked in popular punjabi style",
+            "price": 11.99
+        },
+        "Channa Saag (vegan)": {
+            "desc": "vegan; garbanzo beans and spinach cooked in light cream with onion, tomatoes, garlic, ginger, fenugreek and mildly spiced",
+            "price": 11.99
+        },
+        "Chilli Paneer": {
+            "desc": "indian cheese sauteed with garlic, ginger, onion and green peppers with chef\u2019s special recipe",
+            "price": 12.99
+        },
+        "Dal Makahni": {
+            "desc": "whole black or yellow split lentil sauteed garlic and fresh tomatoes",
+            "price": 11.99
+        },
+        "Dal Tadka (vegan)": {
+            "desc": "yellow split lentil sauteed garlic and fresh tomatoes",
+            "price": 11.99
+        },
+        "Eggplant Bhartha (vegan)": {
+            "desc": "eggplant baked in our clay oven then mashed and sauteed with garlic, ginger, tomatoes, onions with light seasoning",
+            "price": 12.99
+        },
+        "Eggplant or Cauliflower Korma": {
+            "desc": "fresh eggplant cooked in moderately seasoned cream sauce with nuts and saffron",
+            "price": 11.99
+        },
+        "Cauliflower Korma": {
+            "desc": "cauliflower cooked in moderately seasoned cream sauce with nuts and saffron",
+            "price": 11.99
+        },
+        "Malai Kofta": {
+            "desc": "vegetable cheese balls cooked with mild zesty sauce with a touch of cream and nuts",
+            "price": 12.99
+        },
+        "Matter Paneer": {
+            "desc": "green peas and indian cheese sauteed with tomatoes, onion, garlic, ginger in light seasoning sauce touch of heitas",
+            "price": 11.99
+        },
+        "Mushroom Broccoli Karahi": {
+            "desc": "diced mushroom and broccoli sauteed with onion, tomatoes, green peppers and ginger mildly spiced",
+            "price": 12.99
+        },
+        "Mushroom Matter or Allo Matter (Vegan)": {
+            "desc": "vegan; fresh cut mushroom and green peas sauteed with tomatoes, onion, garlic, ginger in elga: seasoning sauce touch of herbs",
+            "price": 11.99
+        },
+        "Aloo Matter (vegan)": {
+            "desc": "vegan; potatoes and green peas sauteed with tomatoes, onion, garlic, ginger in elga: seasoning sauce touch of herbs",
+            "price": 11.99
+        },
+        "Palak Paneer": {
+            "desc": "spinach cooked with indian cheese in mildly spices sauce with touch of spices and herbs",
+            "price": 12.99
+        },
+        "Paneer Karahi": {
+            "desc": "indian cheese sauteed with special indian seasoning with fresh tomatoes, onions and green peppers",
+            "price": 12.99
+        },
+        "Paneer Masala": {
+            "desc": "indian cheese cooked with fresh tomatoes, sliced onion, green peppers with our special zesty sauce",
+            "price": 12.99
+        },
+        "Vegetable Biryani (vegan)": {
+            "desc": "fresh vegetables cooked with saffron and light seasoning and naturally fragnant long grain basmati rice and nuts served with raita",
+            "price": 11.99
+        },
+        "Vegetable Korma": {
+            "desc": "fresh nine garden vegetables cooked moderately seasoned cream sauce with nuts and saffron",
+            "price": 11.99
+        },
+        "Vegetable Vindallu or Curry (vegan)": {
+            "desc": "vegan; south indian traditionally hot fresh vegetable cooked in medium spiced sauce",
+            "price": 11.99
+        }
+    },
+    "Breads": {
+        "Alloo Parantha": {
+            "desc": "multi layered whole wheat buttered flaky bread baked in clay oven",
+            "price": 3.99
+        },
+        "Bullet Naan": {
+            "desc": "bread filled green chilly",
+            "price": 3.99
+        },
+        "Chicken and Potato Naan": {
+            "desc": "scrumptious naan bread stuffed with chicken and potatoes",
+            "price": 3.99
+        },
+        "Garlic Naan": {
+            "desc": "leavened bread touched with fresh shredded garlic and herbs then baked in our clay oven",
+            "price": 3.49
+        },
+        "Keema Naan": {
+            "desc": "scrumptious naan bread stuffed with chicken",
+            "price": 3.99
+        },
+        "Methi Parantha": {
+            "desc": "multi layered with fenugreek and buttered flaky whole wheat bread",
+            "price": 3.99
+        },
+        "Mix Bread Basket": {
+            "desc": "assortment bread from clay oven garlic naan, roti and naan",
+            "price": 7.99
+        },
+        "Naan": {
+            "desc": "traditional/ punjabi battered white bread baked in clay oven",
+            "price": 2.49
+        },
+        "Onion Paneer": {
+            "desc": "white bread filled with onion and fenugreek or homemade cheese with mild spiced and herbs",
+            "price": 3.99
+        },
+        "Parantha": {
+            "desc": "multi layered whole wheat buttered flaky bread baked in clay oven",
+            "price": 3.99
+        },
+        "Pashwari Naan": {
+            "desc": "bread filled with coconut, almonds, cherries and raisins and baked in our special clay oven served with raita sauce",
+            "price": 3.99
+        },
+        "Roti": {
+            "desc": "freshly baked in clay oven whole wheat bread",
+            "price": 1.99
+        }
+    },
+    "Clay Oven Combo": {
+        "Special Dinner for Two": {
+            "desc": "lamb curry, chicken tikka masala, veg. korma, rice, one bread and a dessert",
+            "price": 39.99
+        }
+    },
+    "Desserts": {
+        "Badamee Kheer": {
+            "desc": "indian style pudding garnished with nuts, raisins and rose water",
+            "price": 3.99
+        },
+        "Gulab Jamun": {
+            "desc": "light cheese morsels dipped in cinnamon flavored syrup",
+            "price": 3.99
+        },
+        "Kulfi": {
+            "desc": "indian homemade ice cream with pistachios, almonds and rose water",
+            "price": 2.99
+        },
+        "Mango Kulfi": {
+            "desc": "homemade mango flavored indian ice cream",
+            "price": 2.99
+        }
+    },
+    "Beverages": {
+        "Juices": {
+            "desc": "mango or pineapple",
+            "price": 2.99
+        },
+        "Lassi": {
+            "desc": "a refreshing yogurt drink served chilled sweet or plain",
+            "price": 2.99
+        },
+        "Mango Lassi": {
+            "desc": "a refreshing yogurt drink churned with mangoes",
+            "price": 2.99
+        }
+    }
+}
