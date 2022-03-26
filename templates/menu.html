@@ -3,5 +3,27 @@
 {% block title %} Menu {% endblock %}
 
 {% block main %}
-
+    <div class="container p-3">        
+        {% for i in  menu %}
+        <div class="row align-items-start">
+            <h4>{{i}}</h4>
+            {% for j in menu[i]%}
+                <div class="row align-items-start">
+                    <div class="col">
+                        <p>{{j}}</p>
+                    </div>
+                    {% for k in menu[i][j] %}
+                        <div class="col">
+                            {% if  k == "desc" %}
+                            <p>{{menu[i][j][k]}}</p>
+                            {% else %}
+                            <p>${{menu[i][j][k]}}</p>
+                            {% endif %}
+                        </div>
+                    {%endfor%}
+                </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

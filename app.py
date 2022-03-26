@@ -3,7 +3,7 @@ from functools import wraps
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from sqlite3 import connect
-
+import json
 
 app = Flask(__name__)
 
@@ -36,8 +36,12 @@ def index():
 
 @app.route("/menu")
 def menu():
+    
+    with open('menu_cleaned.json', 'r') as items:
+        menu = json.load(items)
+        # print(menu)
 
-    return render_template('menu.html', sesh=session["user"])
+    return render_template('menu.html', sesh=session["user"], menu=menu)
 
 
 @app.route("/gift")
