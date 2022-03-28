@@ -1,3 +1,6 @@
+from crypt import methods
+import sqlite3
+from urllib import response
 from flask import Flask, render_template, redirect, request, session
 from functools import wraps
 from flask_session import Session
@@ -41,6 +44,19 @@ def menu():
         menu = json.load(items)
         # print(menu)
 
+    with connect('restaurant.db') as conn:
+        db = conn.cursor()
+        
+        # retrieve menu items 
+        res = db.execute('SELECT * FROM menu').fetchall()
+        print(res)
+
+        # cycling through categories
+        for i in range(1, 14):
+            for j in res:
+                if i == j[1]:
+                    print(j)
+            print('\n----------------------')
     return render_template('menu.html', sesh=session["user"], menu=menu)
 
 
@@ -120,6 +136,19 @@ def useracc():
         
         return render_template('useracc.html', name=name, username=email, sesh=session["user"])
     
+    
+@app.route("/cart")
+def cart():
+    return render_template('cart.html')
+
+
+@app.route("/inquire", methods=['POST', 'GET'])
+def contactus():
+    if request.method == "POST":
+        email = request.form.get('email')
+        inquiry = request.form.get('question')
+        
+    return render_template('inquire.html')
 
 @app.route("/signout")
 def signout():
