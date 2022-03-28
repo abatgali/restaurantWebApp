@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block main %}
+
+    <div class="container p-3">
+        <form action="/inquire" method="POST">
+            <div class="mb-3">
+                <label for="id" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" id="email">
+            </div>
+            <div class="mb-3">
+                <label for="text" class="form-label">Help us help you:</label>
+                <textarea class="form-control" name="question" rows="3" id="text"></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary btn-lg m-4">Submit</button>
+        </form>
+    </div>
+
+
+{% endblock %}

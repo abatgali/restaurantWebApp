@@ -22,4 +22,18 @@ with sqlite3.connect('restaurant.db') as conn:
             #db.execute('UPDATE items SET categoryID = ? WHERE item = ?', (catgID, j))
             
             # fixing T. Shrimp appetizer's catg id
-            db.execute('UPDATE items SET categoryID = ? WHERE id = ?', (1, 5))
+            # db.execute('UPDATE items SET categoryID = ? WHERE id = ?', (1, 5))
+            items_per_catg = db.execute('SELECT id FROM items WHERE categoryID = ?', [catgID]).fetchall()
+            #print(f"{catgID}:{items_per_catg}\n")
+            
+            """ 
+            populated menu table
+            for k in items_per_catg:
+                
+                db.execute('INSERT INTO menu (itemID, categoryID) VALUES (?, ?)', (k[0], catgID))
+            break """
+            #for k in items_per_catg:
+                
+    
+    
+            
