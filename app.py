@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from crypt import methods
 import sqlite3
 from urllib import response
@@ -37,27 +38,67 @@ def index():
     return render_template('index.html', sesh=session["user"])
 
 
-@app.route("/menu")
+@app.route("/menu", methods=['GET','POST'])
 def menu():
     
-    with open('menu_cleaned.json', 'r') as items:
-        menu = json.load(items)
-        # print(menu)
+    
+    if request.method == 'GET':
 
-    with connect('restaurant.db') as conn:
-        db = conn.cursor()
-        
-        # retrieve menu items 
-        res = db.execute('SELECT * FROM menu').fetchall()
-        print(res)
+        with connect('restaurant.db') as conn:
+            db = conn.cursor()
+            
+            # retrieve menu items 
+            res = db.execute('SELECT * FROM menu').fetchall()
+            # print(res)
 
-        # cycling through categories
-        for i in range(1, 14):
-            for j in res:
-                if i == j[1]:
-                    print(j)
+            # to compose menu json from db
+            menu = {}
+            # cycling through categories
+            for i in range(1, 14):
+                
+                catg = db.execute('SELECT type FROM category WHERE id=?', [i]).fetchall()[0][0]
+                
+                items = {}
+                for j in res:
+                    
+                    if i == j[1]:
+                        
+                        # print(j)
+                        # item id at j[0]
+                        # category at j[1]
+                        
+                        item = {}
+                        
+                        result = db.execute('SELECT * FROM items WHERE id = ?', [j[0]]).fetchall()[0]
+                        name = result[1]
+                        item["price"] = result[2]
+                        item["desc"] = result[3]
+                        item["id"] = result[0]
+                        
+                        # appending each item to items dict
+                        items.update({name: item})
+                        #print(item["id"])
+                
+                # adding category and its items to the menu 
+                # with each cycle of nested loop                        
+                menu[catg] = items
+   
+            #print(menu)
+                        
             print('\n----------------------')
-    return render_template('menu.html', sesh=session["user"], menu=menu)
+                
+            """  with open('menu_cleaned.json', 'r') as items:
+            menu = json.load(items)
+            print(menu) """
+            
+            # adding selected items by the user to a list
+            # to display in the cart later
+            if request.args.get('id') != NULL:
+                if session["cart"] is None:
+                    session["cart"] = [request.args.get('id')]
+                
+        
+        return render_template('menu.html', sesh=session["user"], menu=menu)
 
 
 @app.route("/gift")
@@ -150,10 +191,19 @@ def contactus():
         
     return render_template('inquire.html')
 
+
 @app.route("/signout")
 def signout():
     
     session.clear()
     return redirect('/')
+
+
+@app.route("/error")
+def error():
+    
+    msg = "What did you do!?"
+    
+    return render_template('error.html', msg=msg)
  
 app.run()

@@ -4,7 +4,7 @@
 
 {% block main %}
     <div class="container p-3">        
-        {% for i in  menu %}
+        {% for i in menu %}
         <div class="row align-items-start">
             <h4>{{i}}</h4>
             {% for j in menu[i]%}
@@ -12,15 +12,33 @@
                     <div class="col">
                         <p>{{j}}</p>
                     </div>
-                    {% for k in menu[i][j] %}
-                        <div class="col">
-                            {% if  k == "desc" %}
-                            <p>{{menu[i][j][k]}}</p>
-                            {% else %}
-                            <p>${{menu[i][j][k]}}</p>
-                            {% endif %}
-                        </div>
-                    {%endfor%}
+                
+                    
+                    <div class="col">
+                        {{menu[i][j]["desc"] }}
+                        <!-- {% if k == "price" %}
+                        <p>${{menu[i][j][k]}}</p>
+
+                        {% elif  k == "desc" %}
+                        <p>{{menu[i][j][k]}}</p>
+                        
+                        
+                        {% endif %}
+
+                        {% if k == "id" %}
+                    
+                        <p>{{ menu[i][j][k] }}</p>
+
+                        {% endif %} -->
+                    </div>
+                    <div class="col">
+                        ${{ menu[i][j]["price"]}}
+                    </div>
+                    <div class ="col">
+                        <a href="menu?id={{ menu[i][j]["id"]}}"> Add to Cart</a>
+                    </div>
+                       
+                        
                 </div>
             {% endfor %}
         </div>
