@@ -34,10 +34,11 @@
                     <div class="col">
                         ${{ menu[i][j]["price"]}}
                     </div>
+                    {% if sesh != 0 %}
                     <div class ="col">
                         <a href="menu?id={{ menu[i][j]["id"]}}"> Add to Cart</a>
                     </div>
-                       
+                    {%endif%}
                         
                 </div>
             {% endfor %}

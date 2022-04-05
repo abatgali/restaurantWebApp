@@ -4,8 +4,14 @@
 
 {% block main %}
 
-    <div class="container p-3">
-  
+    <div class="container p-3 justify-content-center">
+
+        {% if subtotal == 0 %}
+        <hr>    
+        <h5>Cart is Empty</h5>
+        
+        
+        {% else %}
         <table class="table">
             <thead>
             <tr>
@@ -17,15 +23,36 @@
             </tr>
             </thead>
             <tbody>
+            {% for item in cart %}
             <tr>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>{{prices[item][1]}}</td>
+                <td>{{cart[item]}}</td>
+                <td>${{prices[item][0]}}</td>
+                <td>${{cart[item] * prices[item][0]}}</td>
+            </tr>
+            {% endfor %}
+            
+            <tr>
+                <th></th>
+                <th></th>
+                <td>Sales Tax(7%):</td>
+                <td>${{tax}}</td>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Total:</th>
+                <th>${{ "%.2f"|format(tax + subtotal) }}</th>
             </tr>
             
             </tbody>
         </table>
+        
+        <form action='/cart' method='POST'>
+            <button type="submit" class="btn btn-secondary btn-lg">Place Order</button>
+        </form>
+        {% endif %}
+    
     </div>
 
 {% endblock %}

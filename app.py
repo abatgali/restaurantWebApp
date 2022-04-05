@@ -1,5 +1,5 @@
-from asyncio.windows_events import NULL
-from crypt import methods
+#from asyncio.windows_events import NULL
+from ast import excepthandler
 import sqlite3
 from urllib import response
 from flask import Flask, render_template, redirect, request, session
@@ -92,12 +92,26 @@ def menu():
             print(menu) """
             
             # adding selected items by the user to a list
-            # to display in the cart later
-            if request.args.get('id') != NULL:
-                if session["cart"] is None:
-                    session["cart"] = [request.args.get('id')]
+            # to show in the cart
+            if not (request.args.get('id') is None):
                 
-        
+                id = request.args.get('id')
+                # checking if cart has items 
+                try:
+                    session["cart"]
+
+                    if id in session["cart"]:
+                        session["cart"][id] += 1
+                    else:
+                        session["cart"].update({id:1})
+                    print(session["cart"])
+                    
+                # if not, starting count
+                except KeyError:
+                    
+                    session["cart"].update({id:1})
+                    
+            
         return render_template('menu.html', sesh=session["user"], menu=menu)
 
 
@@ -125,16 +139,21 @@ def signin():
             rows = db.execute("SELECT * FROM users WHERE email=?", [username]).fetchall()
             
             # matching entered credentials with database records
+            # print(rows)
             check = rows[0][2]
             if check_password_hash(check, password):
             
                 # setting session id
                 session["user"] = rows[0][0]
+                # setting cart empty
+                session["cart"] = {}
                 print('login successful for ', session["user"])
                 return redirect('/user')
             
             else:
-                return redirect("/menu")
+                
+                msg = "Login failed. Incorrect username or password provided."
+                return render_template('error.html', msg=msg)
 
 
 @app.route("/signup", methods=["POST"])
@@ -147,18 +166,29 @@ def signup():
         lname = request.form.get('lname')
         email = request.form.get('email')
         
-        # phone = request.form.get('phone')
-        pwd = request.form.get('pwd')
-        c_pwd = request.form.get('c_pwd')
-        
-        if pwd == c_pwd:
+        # opening connection to database and committing the newly created account
+        with connect('restaurant.db') as conn:
             
-            # opening connection to database and committing the newly created account
-            with connect('restaurant.db') as conn:
+            db = conn.cursor()
             
-                db = conn.cursor()
-                db.execute('INSERT INTO users (email, hash, name) VALUES (?, ?, ?)', (email, generate_password_hash(pwd), fname + ' ' + lname))
-         
+            result = db.execute('SELECT email FROM users WHERE email = ?', [email]).fetchall()
+            
+            print(result, len(result))
+            
+            # phone = request.form.get('phone')
+            pwd = request.form.get('pwd')
+            c_pwd = request.form.get('c_pwd')
+            
+            if pwd == c_pwd:
+                
+                try:
+                    db.execute('INSERT INTO users (email, hash, name) VALUES (?, ?, ?)', (email, generate_password_hash(pwd), fname + ' ' + lname))
+                except:
+                    return render_template('error.html', msg="Username already in use.", sesh=session["user"])
+            
+            else:
+                return render_template('error.html', msg="Passwords didn't match.", sesh=session["user"])
+                
         return redirect('/signin')
     
     
@@ -178,9 +208,39 @@ def useracc():
         return render_template('useracc.html', name=name, username=email, sesh=session["user"])
     
     
-@app.route("/cart")
+@app.route("/cart", methods=['GET','POST'])
 def cart():
-    return render_template('cart.html')
+            
+    if len(session["cart"]) != 0:
+        
+        with connect('restaurant.db') as conn:
+            db = conn.cursor()
+            
+            # storing prices for every selected item
+            prices = {}
+            subtotal = 0
+            for id in session["cart"]:
+                prices.update({id:db.execute('SELECT price, item FROM items WHERE id=?', [id]).fetchall()[0]}) 
+
+                subtotal += prices[id][0] * session["cart"][id]
+            
+            tax = round(0.07 * subtotal, 2)
+            subtotal = round(subtotal, 2)
+            # print(prices)
+            
+            # confirming the order
+            if request.method == "POST":
+                
+                place_order(tax, subtotal)
+                
+                return render_template('confirm.html')
+            
+    else:
+        prices = {}
+        subtotal = 0
+        tax = 0
+
+    return render_template('cart.html', cart=session["cart"], prices=prices, subtotal=subtotal, tax=tax)
 
 
 @app.route("/inquire", methods=['POST', 'GET'])
@@ -200,10 +260,20 @@ def signout():
 
 
 @app.route("/error")
-def error():
-    
-    msg = "What did you do!?"
+def error(msg="What did you do!?"): 
     
     return render_template('error.html', msg=msg)
+
+
+def place_order(tax, subtotal):
+    
+
+    with connect('restaurant.db') as conn:
+        db = conn.cursor()
+        
+        db.execute('INSERT INTO orders (userID, selectedItems, subtotal, tax, total) VALUES (?, ?, ?, ?, ?)', (session["user"], json.dumps(session["cart"]), subtotal, tax, round(subtotal+tax, 2)))
+    
+    return 
+
  
 app.run()
