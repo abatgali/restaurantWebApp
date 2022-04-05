@@ -3,12 +3,40 @@
 {% block title %} Account {% endblock %}
 
 {% block main %}
-    <div class="p-5 mx-auto">
+    <div class="p-5 mx-auto container">
         <h4>Account Details</h4>
             <p>Welcome, {{ name }}!</p>
             <p>Username: {{ username }}</p>
-        <hr>
+        <hr class="mt-5">
         <h4>Past Orders</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Order details</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Tax</th>
+                <th scope="col">Total</th>
+                <th scope="col">Date/Time</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for i in orders %}
+                <tr>
+                    <td>{{i}}</td>
+                    <td>
+                        {% for j in details[i] %}
+                        <p>{{items[j]}} x {{details[i][j]}}</p>
+                        {% endfor %}
+                    </td>
+                    <td>${{orders[i]["subtotal"]}}</td>
+                    <td>${{orders[i]["tax"]}}</td>
+                    <td>${{orders[i]["total"]}}</td>
+                    <td>{{orders[i]["datetime"]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
     
 {% endblock %}

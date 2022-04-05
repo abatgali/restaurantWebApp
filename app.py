@@ -1,6 +1,7 @@
 #from asyncio.windows_events import NULL
 from ast import excepthandler
 import sqlite3
+from turtle import clear
 from urllib import response
 from flask import Flask, render_template, redirect, request, session
 from functools import wraps
@@ -205,7 +206,37 @@ def useracc():
         # username
         email = rows[0][1]
         
-        return render_template('useracc.html', name=name, username=email, sesh=session["user"])
+        results = db.execute("SELECT selectedItems, subtotal, tax, total, receivedAt FROM orders WHERE userID=?", [session["user"]]).fetchall()
+        # print(results)
+        
+        if not results is None:
+            orders = {}
+            orderInfo = {}
+            names = {}
+            order_count = 1
+            for i in results:
+                details = json.loads(i[0])
+                subtotal = i[1]
+                tax = i[2]
+                total = i[3]
+                datetime = i[4]
+                
+                print(details)
+                orders.update({order_count : { "subtotal" : subtotal, "tax": tax, "total": total, "datetime": datetime}})
+                
+                # retrieving item names and storing into details dict
+                for id in details:                    
+                    names[id] = db.execute("SELECT item FROM items WHERE id=?", [id]).fetchall()[0][0]
+                
+                # updating orderInfo dict
+                orderInfo.update({order_count: details})
+                
+                order_count += 1
+                
+            print(orders)
+            print(orderInfo)
+        
+        return render_template('useracc.html', name=name, username=email, sesh=session["user"], orders=orders, details=orderInfo, items=names)
     
     
 @app.route("/cart", methods=['GET','POST'])
@@ -272,6 +303,9 @@ def place_order(tax, subtotal):
         db = conn.cursor()
         
         db.execute('INSERT INTO orders (userID, selectedItems, subtotal, tax, total) VALUES (?, ?, ?, ?, ?)', (session["user"], json.dumps(session["cart"]), subtotal, tax, round(subtotal+tax, 2)))
+
+    # clear cart since order is placed
+    session["cart"].clear()
     
     return 
 
