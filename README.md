@@ -3,9 +3,34 @@
 #### Description: Lets people view the restaurant's menu, create their account, and place psuedo orders when they sign in.
 
 
+<br/>
+
+
 #### Final Project:
 
 A restaurant website featuring a menu with 107 items that uses Flask to process requests and SQLite to store data such as users' credentials, menu items, categories, and orders.
+
+<br/>
+Homepage
+
+![](homepage.png)
+
+<br/>
+Menu
+
+![](menu.png)
+
+
+<br/>
+Account Page
+
+![](acc.png)
+
+<br/>
+Cart
+
+![](cart.png)
+
 
 ---
 #### Outline
