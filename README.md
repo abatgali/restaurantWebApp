@@ -1,6 +1,6 @@
 # Restaurant web app
 #### Video Demo:  https://youtu.be/KrT3tUwIZCU
-#### Description: Lets people view the restaurant's menu, create their account, and place psuedo orders when they sign in.
+#### Description: Lets people view the restaurant's menu, create account, and place psuedo orders when they sign in.
 
 
 <br/>
